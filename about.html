@@ -11,6 +11,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://lcroyal.com/#business",
+    "name": "L&C Royal Management Inc.",
+    "url": "https://lcroyal.com",
+    "telephone": "+13052287326",
+    "faxNumber": "+13052287328",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "13155 SW 42nd St Suite 103",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "postalCode": "33175",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.72950,
+      "longitude": -80.40937
+    },
+    "description": "Full-service HOA and condo association management company serving South Florida communities for over 15 years.",
+    "areaServed": "South Florida",
+    "serviceType": ["HOA Management", "Condo Association Management", "Property Management", "Community Accounting"],
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <meta property="og:image" content="https://lcroyal.com/images/lcroyal-og.svg" />
 </head>
 <body>
 
@@ -72,7 +102,7 @@
 <!-- WHO WE ARE -->
 <section style="background:var(--white);" aria-labelledby="who-heading">
   <div class="wrap">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+    <div class="grid-2col">
       <div>
         <span class="eyebrow" style="display:block;margin-bottom:16px;">Who We Are</span>
         <h2 id="who-heading" style="color:var(--navy);margin-bottom:24px;">Florida's Premier Property Management Company.</h2>
@@ -124,7 +154,7 @@
       <h2 id="apart-heading" style="color:var(--white);margin-bottom:20px;">What sets our team apart.</h2>
       <p style="color:rgba(255,255,255,0.55);">We combine deep South Florida market knowledge with a personalized, client-first approach that larger firms simply can't match.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+    <div class="grid-3col">
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(184,151,90,0.2);border-radius:12px;padding:36px;">
         <div style="width:48px;height:48px;background:rgba(184,151,90,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -153,7 +183,7 @@
 <!-- STATS ROW -->
 <section style="background:var(--cream);padding:72px 0;" aria-label="Company milestones">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;">
+    <div class="grid-4col">
       <div>
         <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--gold);line-height:1;">15+</div>
         <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-top:8px;">Years in Business</div>
@@ -252,6 +282,19 @@
   <div class="cookie-actions">
     <button id="cookie-decline" class="btn btn-outline" style="font-size:0.75rem;padding:10px 20px;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6);">Decline</button>
     <button id="cookie-accept" class="btn btn-gold" style="font-size:0.75rem;padding:10px 20px;">Accept</button>
+  </div>
+</div>
+<!-- ADA ACCESSIBILITY WIDGET -->
+<div id="ada-widget" role="complementary" aria-label="Accessibility options">
+  <button id="ada-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="ada-panel">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  </button>
+  <div id="ada-panel" role="dialog" aria-label="Accessibility settings">
+    <h6>Accessibility</h6>
+    <button class="ada-btn" id="ada-hc">Toggle High Contrast</button>
+    <button class="ada-btn" id="ada-large">Toggle Large Text</button>
+    <button class="ada-btn" id="ada-motion">Reduce Motion</button>
+    <button class="ada-btn" id="ada-reset" style="color:var(--gold);border-color:var(--gold-lt);">Reset All</button>
   </div>
 </div>
 <script src="js/main.js" defer></script>

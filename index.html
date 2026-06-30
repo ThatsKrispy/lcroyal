@@ -15,6 +15,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://lcroyal.com/#business",
+    "name": "L&C Royal Management Inc.",
+    "url": "https://lcroyal.com",
+    "telephone": "+13052287326",
+    "faxNumber": "+13052287328",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "13155 SW 42nd St Suite 103",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "postalCode": "33175",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.72950,
+      "longitude": -80.40937
+    },
+    "description": "Full-service HOA and condo association management company serving South Florida communities for over 15 years.",
+    "areaServed": "South Florida",
+    "serviceType": ["HOA Management", "Condo Association Management", "Property Management", "Community Accounting"],
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <meta property="og:image" content="https://lcroyal.com/images/lcroyal-og.svg" />
 </head>
 <body>
 
@@ -393,6 +423,19 @@
   </div>
 </div>
 
+<!-- ADA ACCESSIBILITY WIDGET -->
+<div id="ada-widget" role="complementary" aria-label="Accessibility options">
+  <button id="ada-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="ada-panel">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  </button>
+  <div id="ada-panel" role="dialog" aria-label="Accessibility settings">
+    <h6>Accessibility</h6>
+    <button class="ada-btn" id="ada-hc">Toggle High Contrast</button>
+    <button class="ada-btn" id="ada-large">Toggle Large Text</button>
+    <button class="ada-btn" id="ada-motion">Reduce Motion</button>
+    <button class="ada-btn" id="ada-reset" style="color:var(--gold);border-color:var(--gold-lt);">Reset All</button>
+  </div>
+</div>
 <script src="js/main.js" defer></script>
 </body>
 </html>

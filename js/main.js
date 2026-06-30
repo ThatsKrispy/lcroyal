@@ -1,56 +1,59 @@
-/* L&C Royal Management — main.js */
+/* L&C Royal Management — main.js | ThatsKrispy */
 
-/* Nav scroll state */
+/* ─── Nav scroll state ─── */
 const nav = document.getElementById('nav');
 if (nav) {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  }, { passive: true });
 }
 
-/* Mobile menu */
+/* ─── Mobile menu ─── */
 const toggle = document.querySelector('.nav-toggle');
 const mobileMenu = document.querySelector('.nav-mobile');
 if (toggle && mobileMenu) {
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
+    const open = toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
   });
-  // Close on link click
   mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       toggle.classList.remove('open');
       mobileMenu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-/* Contact form */
+/* ─── Contact form — Web3Forms ─── */
 const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.form-submit');
+    const btn     = form.querySelector('.form-submit');
     const success = document.getElementById('form-success');
-    const error = document.getElementById('form-error');
+    const error   = document.getElementById('form-error');
     success.style.display = 'none';
-    error.style.display = 'none';
+    error.style.display   = 'none';
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // Formspree or similar — swap action URL when live
     const data = new FormData(form);
+    // Web3Forms — free, no backend required
+    data.append('access_key', form.dataset.key || '');
+
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        body: data
       });
-      if (res.ok) {
+      const json = await res.json();
+      if (json.success) {
         success.style.display = 'block';
         form.reset();
       } else {
-        throw new Error('Server error');
+        throw new Error(json.message || 'Submission failed');
       }
     } catch {
       error.style.display = 'block';
@@ -61,9 +64,9 @@ if (form) {
   });
 }
 
-/* Cookie banner */
-const cookieBanner = document.getElementById('cookie-banner');
-const cookieAccept = document.getElementById('cookie-accept');
+/* ─── Cookie banner ─── */
+const cookieBanner  = document.getElementById('cookie-banner');
+const cookieAccept  = document.getElementById('cookie-accept');
 const cookieDecline = document.getElementById('cookie-decline');
 if (cookieBanner) {
   if (!localStorage.getItem('lcr-cookie')) {
@@ -79,7 +82,7 @@ if (cookieBanner) {
   });
 }
 
-/* Lazy load images */
+/* ─── Lazy load images ─── */
 if ('IntersectionObserver' in window) {
   const imgs = document.querySelectorAll('img[data-src]');
   const io = new IntersectionObserver((entries) => {
@@ -94,16 +97,47 @@ if ('IntersectionObserver' in window) {
   imgs.forEach(img => io.observe(img));
 }
 
-/* Scroll reveal */
-const reveals = document.querySelectorAll('.reveal');
-if (reveals.length) {
-  const ro = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('revealed');
-        ro.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => ro.observe(el));
+/* ─── ADA Accessibility Widget ─── */
+const adaToggle = document.getElementById('ada-toggle');
+const adaPanel  = document.getElementById('ada-panel');
+if (adaToggle && adaPanel) {
+  adaToggle.addEventListener('click', () => {
+    adaPanel.classList.toggle('open');
+    adaToggle.setAttribute('aria-expanded', adaPanel.classList.contains('open'));
+  });
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#ada-widget')) {
+      adaPanel.classList.remove('open');
+      adaToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Load saved prefs
+  const prefs = JSON.parse(localStorage.getItem('lcr-ada') || '{}');
+  if (prefs.hc)     document.body.classList.add('hc-mode');
+  if (prefs.large)  document.body.classList.add('large-text');
+  if (prefs.motion) document.body.classList.add('reduce-motion');
+
+  function savePrefs() {
+    localStorage.setItem('lcr-ada', JSON.stringify({
+      hc:     document.body.classList.contains('hc-mode'),
+      large:  document.body.classList.contains('large-text'),
+      motion: document.body.classList.contains('reduce-motion')
+    }));
+  }
+
+  document.getElementById('ada-hc')?.addEventListener('click', () => {
+    document.body.classList.toggle('hc-mode'); savePrefs();
+  });
+  document.getElementById('ada-large')?.addEventListener('click', () => {
+    document.body.classList.toggle('large-text'); savePrefs();
+  });
+  document.getElementById('ada-motion')?.addEventListener('click', () => {
+    document.body.classList.toggle('reduce-motion'); savePrefs();
+  });
+  document.getElementById('ada-reset')?.addEventListener('click', () => {
+    document.body.classList.remove('hc-mode','large-text','reduce-motion');
+    localStorage.removeItem('lcr-ada');
+  });
 }

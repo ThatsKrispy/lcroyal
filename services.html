@@ -11,6 +11,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://lcroyal.com/#business",
+    "name": "L&C Royal Management Inc.",
+    "url": "https://lcroyal.com",
+    "telephone": "+13052287326",
+    "faxNumber": "+13052287328",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "13155 SW 42nd St Suite 103",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "postalCode": "33175",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.72950,
+      "longitude": -80.40937
+    },
+    "description": "Full-service HOA and condo association management company serving South Florida communities for over 15 years.",
+    "areaServed": "South Florida",
+    "serviceType": ["HOA Management", "Condo Association Management", "Property Management", "Community Accounting"],
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <meta property="og:image" content="https://lcroyal.com/images/lcroyal-og.svg" />
 </head>
 <body>
 
@@ -71,7 +101,7 @@
 <!-- INTRO -->
 <section style="background:var(--white);" aria-labelledby="services-intro">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div class="svc-intro-grid">
       <div>
         <span class="eyebrow" style="display:block;margin-bottom:16px;">Our Philosophy</span>
         <h2 id="services-intro" style="color:var(--navy);margin-bottom:24px;">We manage properties — but that's just the start.</h2>
@@ -123,7 +153,7 @@
 
     <!-- Admin -->
     <div style="background:var(--white);border-radius:16px;padding:48px;margin-bottom:24px;border:1px solid var(--gray-lt);">
-      <div style="display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;">
+      <div class="svc-detail-block">
         <div>
           <div style="width:56px;height:56px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -132,7 +162,7 @@
           <p style="font-size:0.88rem;margin-bottom:20px;">The complete administrative backbone for your HOA or condo association.</p>
           <a href="contact.html" class="btn btn-outline" style="font-size:0.78rem;padding:10px 22px;">Inquire Now</a>
         </div>
-        <div class="services-list-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0;">
+        <div class="svc-list-2col">
           <div class="service-list-item">
             <div class="service-list-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
             <p>Supervision of all independent contractors, vendors, and personnel</p>
@@ -163,7 +193,7 @@
 
     <!-- Finance -->
     <div style="background:var(--white);border-radius:16px;padding:48px;margin-bottom:24px;border:1px solid var(--gray-lt);" id="finance">
-      <div style="display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;">
+      <div class="svc-detail-block">
         <div>
           <div style="width:56px;height:56px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -172,7 +202,7 @@
           <p style="font-size:0.88rem;margin-bottom:20px;">We work closely with your Board to maintain full financial transparency and accountability.</p>
           <a href="contact.html" class="btn btn-outline" style="font-size:0.78rem;padding:10px 22px;">Inquire Now</a>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="svc-list-2col">
           <div class="service-list-item">
             <div class="service-list-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
             <p>Bookkeeping, accounting, and collections management</p>
@@ -203,7 +233,7 @@
 
     <!-- Maintenance -->
     <div style="background:var(--white);border-radius:16px;padding:48px;border:1px solid var(--gray-lt);" id="maintenance">
-      <div style="display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;">
+      <div class="svc-detail-block">
         <div>
           <div style="width:56px;height:56px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -212,7 +242,7 @@
           <p style="font-size:0.88rem;margin-bottom:20px;">Proactive maintenance management to protect your property and keep residents comfortable year-round.</p>
           <a href="contact.html" class="btn btn-outline" style="font-size:0.78rem;padding:10px 22px;">Inquire Now</a>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="svc-list-2col">
           <div class="service-list-item">
             <div class="service-list-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
             <p>Preventative maintenance programs and scheduling</p>
@@ -314,6 +344,19 @@
   <div class="cookie-actions">
     <button id="cookie-decline" class="btn btn-outline" style="font-size:0.75rem;padding:10px 20px;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6);">Decline</button>
     <button id="cookie-accept" class="btn btn-gold" style="font-size:0.75rem;padding:10px 20px;">Accept</button>
+  </div>
+</div>
+<!-- ADA ACCESSIBILITY WIDGET -->
+<div id="ada-widget" role="complementary" aria-label="Accessibility options">
+  <button id="ada-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="ada-panel">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  </button>
+  <div id="ada-panel" role="dialog" aria-label="Accessibility settings">
+    <h6>Accessibility</h6>
+    <button class="ada-btn" id="ada-hc">Toggle High Contrast</button>
+    <button class="ada-btn" id="ada-large">Toggle Large Text</button>
+    <button class="ada-btn" id="ada-motion">Reduce Motion</button>
+    <button class="ada-btn" id="ada-reset" style="color:var(--gold);border-color:var(--gold-lt);">Reset All</button>
   </div>
 </div>
 <script src="js/main.js" defer></script>
